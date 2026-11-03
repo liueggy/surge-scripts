@@ -13,9 +13,9 @@
 //   [{"repo":"owner/repo","note":"备注"}, ...]
 // ============================================================
 
-// 仓库列表单独放在一个 Gist 里，方便手动编辑
+// 仓库列表放在 liueggy/surge-scripts 仓库里，随时可以手动加
 const REPOS_URL =
-  "https://gist.githubusercontent.com/liueggy/f724f6e76178912f669fa042957d8a71/raw/repos.json";
+  "https://raw.githubusercontent.com/liueggy/surge-scripts/main/repos.json";
 
 const TOKEN_KEY = "ghwatch_token";
 const STATE_KEY = "ghwatch_state";
