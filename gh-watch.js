@@ -14,8 +14,9 @@
 // ============================================================
 
 // 仓库列表放在 liueggy/surge-scripts 仓库里，随时可以手动加
+// 列表走 API 直读（带 token，永远是最新提交，不受 CDN 缓存影响）
 const REPOS_URL =
-  "https://raw.githubusercontent.com/liueggy/surge-scripts/main/repos.json";
+  "https://api.github.com/repos/liueggy/surge-scripts/contents/repos.json";
 
 const TOKEN_KEY = "ghwatch_token";
 const STATE_KEY = "ghwatch_state";
@@ -61,8 +62,14 @@ function http(opts, cb) {
 }
 
 // ---------- 仓库列表 ----------
-function loadRepos(cb) {
-  http({ url: REPOS_URL + "?t=" + Date.now(), timeout: 12 }, function (e, r, d) {
+function loadRepos(token, cb) {
+  const headers = {
+    Accept: "application/vnd.github.v3.raw",
+    "User-Agent": "Surge-gh-watch",
+  };
+  if (token) headers.Authorization = "Bearer " + token;
+
+  http({ url: REPOS_URL, headers: headers, timeout: 12 }, function (e, r, d) {
     let list = null;
     if (!e && r && r.status === 200 && d) {
       try {
@@ -179,7 +186,7 @@ const state = readJSON(STATE_KEY, { repos: {} });
 if (!state.repos) state.repos = {};
 const trCache = readJSON(TR_KEY, {});
 
-loadRepos(function (items) {
+loadRepos(token, function (items) {
   if (items.length === 0) {
     $done({});
     return;
