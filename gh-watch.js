@@ -211,7 +211,7 @@ loadRepos(token, function (items) {
     writeJSON(STATE_KEY, state);
 
     if (changed.length > 0) {
-      console.log("更新: " + changed.join(" | "));
+      console.log("更新: " + changed.map(function (c) { return c.repo + " " + c.zh; }).join(" | "));
       if (NOTIFY) {
         const body = changed
           .map(function (c) {
