@@ -83,14 +83,14 @@ function ghLines() {
     out[0] += "\n   ⚠️ " + fresh.length + " 个更新";
     fresh.slice(0, 3).forEach(function (n) {
       const r = st.repos[n];
-      const t = (r.zh || r.title || "").slice(0, 18);
+      const t = (r.zh || r.title || "").slice(0, 20);
       out.push("   · " + n.split("/")[1] + " " + r.tag + " " + t);
     });
   } else {
     names.slice(0, 2).forEach(function (n) {
       const r = st.repos[n];
       if (!r || !r.tag) return;
-      const t = (r.zh || r.title || "").slice(0, 16);
+      const t = (r.zh || r.title || "").slice(0, 20);
       out.push("   · " + n.split("/")[1] + " " + r.tag + " " + t);
     });
   }
