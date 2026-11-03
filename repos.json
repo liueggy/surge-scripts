@@ -1,0 +1,8 @@
+{
+  "repos": [
+    { "repo": "liueggy/liueggy", "note": "我的主页" },
+    { "repo": "Rabbit-Spec/Surge", "note": "规则集来源" },
+    { "repo": "ddgksf2013/Scripts", "note": "去开屏脚本" },
+    { "repo": "sub-store-org/Sub-Store", "note": "订阅管理" }
+  ]
+}
