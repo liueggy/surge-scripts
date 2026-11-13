@@ -5,3 +5,7 @@
 SNP Monitor = type=cron,cronexp="* * * * *",script-path=https://raw.githubusercontent.com/liueggy/surge-scripts/main/network-monitor.js,timeout=45
 SNP Dashboard = type=generic,script-path=https://raw.githubusercontent.com/liueggy/surge-scripts/main/panel.js,timeout=10
 SNP Connectivity = type=generic,script-path=https://raw.githubusercontent.com/liueggy/surge-scripts/main/connectivity-panel.js,timeout=10
+
+[Panel]
+Surge Network Pro = script-name=SNP Dashboard, title=Surge Network Pro, content=加载中…, style=info, update-interval=5
+网站连通性 = script-name=SNP Connectivity, title=网站连通性, content=加载中…, style=info, update-interval=5
