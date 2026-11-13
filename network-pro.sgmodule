@@ -1,0 +1,7 @@
+#!name=Surge Network Pro
+#!desc=网络状态、30 分钟响应趋势、每 5 分钟四站连通性检测（不含 GitHub 更新监控）
+
+[Script]
+SNP Monitor = type=cron,cronexp="* * * * *",script-path=https://raw.githubusercontent.com/liueggy/surge-scripts/main/network-monitor.js,timeout=45
+SNP Dashboard = type=generic,script-path=https://raw.githubusercontent.com/liueggy/surge-scripts/main/panel.js,timeout=10
+SNP Connectivity = type=generic,script-path=https://raw.githubusercontent.com/liueggy/surge-scripts/main/connectivity-panel.js,timeout=10
